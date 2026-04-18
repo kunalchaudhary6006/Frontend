@@ -1,24 +1,27 @@
 const tabs = document.querySelectorAll('.tab');
 const prodRow = document.querySelector('.prod-row');
 
-// Dummy data to handle interactivity via pure Vanilla JS exactly as previously requested
+// Product Data matched exactly to the reference image
 const productsData = {
   'New Arrival': [
-    { img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600', title: 'Wool Blend Overcoat', price: '$129.00', badge: 'SALE' },
-    { img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600', title: 'Slim Fit Chinos', price: '$59.00' },
-    { img: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600', title: 'Oxford Cotton Shirt', price: '$45.00' },
+    { cat: 'Backpacks', img: 'https://picsum.photos/seed/backpack/400/400', title: 'Tan Solid Laptop Backpack', price: '$149.00', oldPrice: '$185.00', badge: '15% OFF' },
+    { cat: 'Jackets', img: 'https://picsum.photos/seed/jacket/400/400', title: 'Brown Solid Biker Jacket', price: '$110.00', oldPrice: '$120.00' },
+    { cat: 'Casual Shoes', img: 'https://picsum.photos/seed/shoes/400/400', title: 'Men Brown Solid Mid-Top', price: '$115.00', oldPrice: '' },
+    { cat: 'Dresses & Tops', img: 'https://picsum.photos/seed/dress/400/400', title: 'Petite Olive Green Solid Top', price: '$49.00', oldPrice: '', badge: '10% OFF' },
+    { cat: 'Handbags, Messenger Bag', img: 'https://picsum.photos/seed/bag/400/400', title: 'Brown Solid Laptop Bag', price: '$99.00', oldPrice: '$120.00' },
+    { cat: 'Analog Watches', img: 'https://picsum.photos/seed/watch1/400/400', title: 'Black Analogue and Digital', price: '$1,599.00', oldPrice: '' },
+    { cat: 'T-Shirts', img: 'https://picsum.photos/seed/tshirt/400/400', title: 'Men Navy Printed Round Neck', price: '$50.00', oldPrice: '' },
+    { cat: 'Handbags', img: 'https://picsum.photos/seed/purse/400/400', title: 'Brown Self Design Shoulder', price: '$78.00', oldPrice: '', badge: '5% OFF' },
+    { cat: 'Smart Watches', img: 'https://picsum.photos/seed/watch2/400/400', title: 'Brown Q Explorist HR Leather', price: '$1,699.00', oldPrice: '$2,000.00' },
+    { cat: 'Belts', img: 'https://picsum.photos/seed/belt/400/400', title: 'Brown Solid Leather Belt', price: '$15.00', oldPrice: '$20.00', badge: '25% OFF' }
   ],
-  'Best Selling': [
-    { img: 'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600', title: 'Leather Mini Bag', price: '$145.00', badge: 'NEW' },
-    { img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600', title: 'Basic T-Shirt', price: '$25.00' },
-    { img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600', title: 'Aviator Sunglasses', price: '$110.00' },
-  ],
-  'Top Rated': [
-    { img: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600', title: 'Casual Wool Sweater', price: '$75.00', badge: 'HOT' },
-    { img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600', title: 'Sports Backpack', price: '$55.00' },
-    { img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600', title: 'Classic White Sneakers', price: '$89.00' },
-  ]
+  'Best Selling': [],
+  'Top Rated': []
 };
+
+// Fallbacks for empty categories to show they work
+productsData['Best Selling'] = [...productsData['New Arrival']].reverse();
+productsData['Top Rated'] = [productsData['New Arrival'][1], productsData['New Arrival'][3], productsData['New Arrival'][8]];
 
 function renderProducts(category) {
   if (!prodRow) return;
@@ -27,7 +30,10 @@ function renderProducts(category) {
   
   items.forEach(item => {
     const badgeHtml = item.badge ? `<div class="badge">${item.badge}</div>` : '';
+    const oldPriceHtml = item.oldPrice ? `<span class="old-price">${item.oldPrice}</span>` : '';
+    const starsHtml = `★★★★★`; // Static 5 stars matching the reference image format
     
+    // In pure JS, we render the DOM components with our template literals
     const cardHTML = `
       <div class="prod-card">
         <div class="prod-img">
@@ -35,8 +41,10 @@ function renderProducts(category) {
           ${badgeHtml}
         </div>
         <div class="prod-info">
+          <div class="prod-cat">${item.cat}</div>
           <div class="prod-title">${item.title}</div>
-          <div class="prod-price">${item.price}</div>
+          <div class="prod-stars">${starsHtml} <span style="color:#aaa; font-size:10px;">(1)</span></div>
+          <div class="prod-price">${item.price} ${oldPriceHtml}</div>
           <button class="btn-add-cart" data-title="${item.title}">Add to Cart</button>
         </div>
       </div>
@@ -146,8 +154,14 @@ document.getElementById('btn-newsletter').addEventListener('click', () => {
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
+    document.getElementById('nav-links').classList.remove('show-menu');
     showToast(`Navigating to ${e.target.innerText}...`);
   });
+});
+
+// Mobile menu toggle
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('show-menu');
 });
 
 // Product "Add to Cart" listener (Event Delegation since cards are dynamic)

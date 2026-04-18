@@ -7,52 +7,97 @@
     <link rel="stylesheet" href="/src/style.css">
   </head>
   <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="tb-left">
+        <span class="tb-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> support@pressmart.com</span>
+        <span class="tb-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (012) 4567 890</span>
+      </div>
+      <div class="tb-right">
+        Welcome to Our Store! &nbsp;|&nbsp; English &nbsp;|&nbsp; $ Dollar (US)
+      </div>
+    </div>
+
     <header class="navbar">
-      <div class="logo">PRESSMART</div>
-      <nav class="nav-links">
+      <div class="menu-toggle" id="menu-toggle">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </div>
+      <div class="logo">PressMart.</div>
+      <nav class="nav-links" id="nav-links">
         <a href="#" class="nav-link">Home</a>
         <a href="#" class="nav-link">Shop</a>
         <a href="#" class="nav-link">Pages</a>
         <a href="#" class="nav-link">Blog</a>
         <a href="#" class="nav-link">Elements</a>
+        <a href="#" class="nav-link">Buy</a>
       </nav>
       <div class="nav-icons">
-        <span id="nav-search">Search</span>
-        <span id="nav-account">Account</span>
-        <span id="nav-wishlist">Wishlist</span>
-        <span id="nav-cart">Cart (<span id="cart-count">0</span>)</span>
+        <span id="nav-account" class="hide-mobile">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span id="nav-search">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <span id="nav-wishlist">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </span>
+        <span id="nav-cart" class="cart-container">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </span>
       </div>
     </header>
 
     <section class="hero-section">
       <div class="hero-content">
-        <h2>SEASON SALE</h2>
-        <h1>MEN'S<br>FASHION</h1>
-        <p style="margin-bottom: 24px; font-weight: 500; opacity: 0.6;">Min. 35–70% Off on selected autumn collections.</p>
+        <h2 class="hero-subtitle">Season Sale</h2>
+        <h1>MEN'S FASHION</h1>
+        <p class="hero-desc">Min. 35–70% Off</p>
         <div class="cta-group">
-          <button id="btn-shop" class="btn btn-dark">Shop Now</button>
+          <button id="btn-shop" class="btn btn-primary">Shop Now</button>
           <button id="btn-read" class="btn btn-outline">Read More</button>
         </div>
       </div>
       <div class="hero-image">
-         <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Men's Fashion Model">
+         <div class="hero-circle"></div>
+         <img src="https://picsum.photos/seed/fashion_model/800/800" alt="Men's Fashion Model">
       </div>
     </section>
 
     <div class="feature-bar">
-      <div class="feature-item"><div class="dot"></div>Free Shipping</div>
-      <div class="feature-item"><div class="dot"></div>Secure Payment</div>
-      <div class="feature-item"><div class="dot"></div>100% Money Back</div>
-      <div class="feature-item"><div class="dot"></div>Online Support</div>
+      <div class="feature-item">
+        <svg width="24" height="24" fill="none" class="feature-icon" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div class="feature-text">
+          <strong>Free Shipping</strong>
+          <span>On All Orders Over $99</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <svg width="24" height="24" fill="none" class="feature-icon" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="feature-text">
+          <strong>Secure Payment</strong>
+          <span>We ensure secure payment</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <svg width="24" height="24" fill="none" class="feature-icon" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 20.3 5M2 12a10 10 0 0 0 18.3 7M20.3 5v5h-5M3.7 19v-5h5"/></svg>
+        <div class="feature-text">
+          <strong>100% Money Back</strong>
+          <span>30 Days Return Policy</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <svg width="24" height="24" fill="none" class="feature-icon" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        <div class="feature-text">
+          <strong>Online Support</strong>
+          <span>24/7 Dedicated Support</span>
+        </div>
+      </div>
     </div>
 
     <main class="main-grid">
-      <div class="cat-grid">
-        <div class="cat-card large">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Women Style" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
-          <div class="cat-overlay"></div>
-          <div class="cat-label">Women Style</div>
-        </div>
+      <div class="section-title">
+        <h2>Featured Products</h2>
       </div>
       
       <div class="prod-section">
@@ -63,6 +108,28 @@
         </div>
         <div class="prod-row">
           <!-- Populated dynamically by main.js -->
+        </div>
+      </div>
+
+      <!-- Promo Banners Section -->
+      <div class="promo-section">
+        <div class="promo-card" style="background-image: url('https://picsum.photos/seed/mens_fashion/600/400');">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <span class="promo-sub">Weekend Sale</span>
+            <h3>Men's Fashion</h3>
+            <p>Flat 70% Off</p>
+            <button class="btn-text">Shop Now ></button>
+          </div>
+        </div>
+        <div class="promo-card" style="background-image: url('https://picsum.photos/seed/womens_fashion/600/400');">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <span class="promo-sub">Fashion Style</span>
+            <h3>Women's Wear</h3>
+            <p>Min. 35-70% Off</p>
+            <button class="btn-text">Shop Now ></button>
+          </div>
         </div>
       </div>
     </main>
