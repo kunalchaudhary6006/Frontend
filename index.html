@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PressMart - Modern Fashion E-Commerce UI</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">PRESSMART</div>
+      <nav class="nav-links">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">Pages</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">Elements</a>
+      </nav>
+      <div class="nav-icons">
+        <span id="nav-search">Search</span>
+        <span id="nav-account">Account</span>
+        <span id="nav-wishlist">Wishlist</span>
+        <span id="nav-cart">Cart (<span id="cart-count">0</span>)</span>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>SEASON SALE</h2>
+        <h1>MEN'S<br>FASHION</h1>
+        <p style="margin-bottom: 24px; font-weight: 500; opacity: 0.6;">Min. 35–70% Off on selected autumn collections.</p>
+        <div class="cta-group">
+          <button id="btn-shop" class="btn btn-dark">Shop Now</button>
+          <button id="btn-read" class="btn btn-outline">Read More</button>
+        </div>
+      </div>
+      <div class="hero-image">
+         <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Men's Fashion Model">
+      </div>
+    </section>
+
+    <div class="feature-bar">
+      <div class="feature-item"><div class="dot"></div>Free Shipping</div>
+      <div class="feature-item"><div class="dot"></div>Secure Payment</div>
+      <div class="feature-item"><div class="dot"></div>100% Money Back</div>
+      <div class="feature-item"><div class="dot"></div>Online Support</div>
+    </div>
+
+    <main class="main-grid">
+      <div class="cat-grid">
+        <div class="cat-card large">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Women Style" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div class="cat-overlay"></div>
+          <div class="cat-label">Women Style</div>
+        </div>
+      </div>
+      
+      <div class="prod-section">
+        <div class="tabs">
+          <span class="tab active">New Arrival</span>
+          <span class="tab">Best Selling</span>
+          <span class="tab">Top Rated</span>
+        </div>
+        <div class="prod-row">
+          <!-- Populated dynamically by main.js -->
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-col">
+        <h4>About Pressmart</h4>
+        <p class="footer-text">A premium fashion experience powered by modern aesthetics. We provide the latest trends with uncompromising quality.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p class="footer-text">Store Locator<br>Terms of Service<br>Privacy Policy</p>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <div class="newsletter">
+          <input type="text" id="newsletter-input" placeholder="your@email.com">
+          <button id="btn-newsletter">JOIN</button>
+        </div>
+        <p class="footer-text" style="margin-top: 8px; font-size: 10px;">Subscribe for exclusive offers.</p>
+      </div>
+    </footer>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <!-- Reusable UI Modal -->
+    <div id="ui-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Title</h2>
+          <button id="modal-close">&times;</button>
+        </div>
+        <div id="modal-body" class="modal-body"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
